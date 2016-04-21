@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite
+        PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<!--
+  This is a sample configuration file for http://tuckey.org/urlrewrite/ demonstrating configuration
+  appropriate for AngularJs single page applications.
+
+  UrlRewriteFilter typically looks for configuration in 'WEB-INF/urlrewrite.xml'; since we don't have
+  a WEB-INF folder in a Spring Boot jar, we have to use an alternate location.
+
+  To register a UrlRewriteFilter in your ApplicationContext, add a @Configuration class like this:
+
+    https://gist.github.com/nblair/fd8de42958c53ef4dfcfa2073e2ea1a2
+-->
+<urlrewrite>
+
+    <!-- forward requests to '/' to /index.html (our angular single page application) -->
+    <rule>
+        <from>^/$</from>
+        <to>/index.html</to>
+    </rule>
+
+    <!-- match-type 'wildcard' uses Ant like paths -->
+    <rule match-type="wildcard">
+        <from>/date/**</from>
+        <to>/index.html</to>
+    </rule>
+
+    <!-- default 'match-type' is "regex", using java Patterns -->
+    <rule>
+        <!-- this route corresponds to a folder as well, containing .js and .html assets -->
+        <condition name="javascript" type="request-uri" operator="notequal">.*\.js$</condition>
+        <condition name="html" type="request-uri" operator="notequal">.*\.html$</condition>
+        <from>^/outage/*</from>
+        <to>/index.html</to>
+    </rule>
+
+
+</urlrewrite>

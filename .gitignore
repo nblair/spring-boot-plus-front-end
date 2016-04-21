@@ -1,0 +1,7 @@
+.idea
+*.iml
+
+bower_components
+node
+node_modules
+target

@@ -1,6 +1,8 @@
 # spring-boot-plus-front-end
 
 This is a Maven project demonstrating how to insert the static assets from a separate project retrievable via bower into a Spring Boot runnable jar.
+
+Read more about the motivations at [http://nblair.github.io/2016/04/21/combining-spring-boot-bower/](http://nblair.github.io/2016/04/21/combining-spring-boot-bower/).
  
 ## Requirements
 

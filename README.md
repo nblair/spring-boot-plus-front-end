@@ -6,6 +6,8 @@ This is a Maven project demonstrating how to insert the static assets from a sep
 
 1. Maven
 
+The build process uses node, npm and bower, however it's not required that you have them installed locally; the [frontend-maven-plugin](https://github.com/eirslett/frontend-maven-plugin) will install them in a generated directory under the project for you.
+
 ## Build
 
 ```
